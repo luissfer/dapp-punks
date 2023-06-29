@@ -77,16 +77,15 @@ contract CyberPunks is ERC721, ERC721Enumerable, CyberPunksDNA {
             "ERC721 Metadata: URI query for nonexistent token"
         );
 
-        uint256 dna = tokenDNA[tokenId];
-        string memory image = imageByOpenAI(dna);
+        //uint256 dna = tokenDNA[tokenId];
+        //string memory image = imageByOpenAI(dna);
 
         string memory jsonURI = Base64.encode(
             abi.encodePacked(
                 '{ "name": "CyberPunks #',
                 tokenId.toString(),
-                '", "descritpion": "Cyber Punks smart contract", "image":"',
-                image,
-                '"}'
+                '", "description": "Cyber Punks smart contract" ',
+                '}'
             )
         );
         return string(abi.encodePacked("data:application/json;base64,", jsonURI));
